@@ -2,28 +2,27 @@ const mongoose = require('mongoose')
 
 const schema = mongoose.Schema
 
-const rrSchema = new Schema({
-    User:{
-        type:Schema.Types.ObjectId,
-        ref:'User',
+const rrSchema = new schema({
+    user:{
+        type:schema.Types.ObjectId,
+        ref:'user',
         required:true
     },
-    Movie:{
-        type:Schema.Types.ObjectId,
-        ref:'Movie',
+    movie:{
+        type:schema.Types.ObjectId,
+        ref:'movie',
         required:true
     },
-    Rating:{
+    rating:{
         type:Float,
-        min:1, max:5,
+        min:1, max:10,
         required:true
     },
-    Review:{
-        type:string,
-        ref:'User',
+    review:{
+        type:String,
         trim:true
     }
 
 })
     
-const reviewRating = new mongoose.model("Review", rrSchema);
+const reviewRating = new mongoose.model("review", rrSchema);

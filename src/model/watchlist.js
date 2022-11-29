@@ -1,27 +1,26 @@
 const mongoose = require('mongoose')
-import('./user')
+
 
 const schema = mongoose.Schema
 
-const watchListSchema = new Schema({
+const watchListSchema = new schema({
     userId:{
-        type:Schema.Types.ObjectId,
-        ref:'User',
+        type:schema.Types.ObjectId,
+        ref:'user',
         required:true
     },
     movieId:{
-        type:Schema.Types.ObjectId,
-        ref:'Movie',
+        type:schema.Types.ObjectId,
+        ref:'movie',
         required:true
 
     },
-    Title:{
-        type:Schema.Types.ObjectId,
-        ref:'Movie'
-    },
-    watched:Boolean,
+    watched:{
+        type:Boolean,
+        default:false
+    }
     
 },
-{timestamps:true});
+{timestamp:true});
 
 const watchlist = new mongoose.model("watchlist", watchListSchema)
